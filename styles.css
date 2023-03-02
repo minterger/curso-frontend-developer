@@ -18,6 +18,7 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
+/* navbar responsive */
 nav {
   display: flex;
   justify-content: space-between;
@@ -69,10 +70,12 @@ nav {
 .email {
   font-size: var(--sm);
   margin-right: 12px;
+  cursor: pointer;
 }
 
 .navbar-shopping-cart {
   position: relative;
+  cursor: pointer;
 }
 .navbar-shopping-cart div {
   display: flex;
@@ -88,11 +91,67 @@ nav {
   top: -6px;
   right: -3px;
 }
+/* fin navbar responsive */
+
+/* menu desplegable email */
+.inactive {
+  visibility: hidden;
+  translate: 0 -10px;
+  opacity: 0;
+}
+
+.desktop-menu {
+  position: absolute;
+  background-color: var(--white);
+  top: 59px;
+  right: 50px;
+  width: 140px;
+  height: auto;
+  border: 1px solid var(--very-light-pink);
+  border-radius: 6px;
+  transition: visibility 0.3s, opacity 0.3s, translate 0.3s;
+}
+
+.desktop-menu ul {
+  list-style: none;
+  padding: 20px 20px 0 20px;
+}
+
+.desktop-menu ul li {
+  text-align: end;
+}
+
+.desktop-menu ul li:nth-child(1),
+.desktop-menu ul li:nth-child(2) {
+  font-weight: bold;
+}
+
+.desktop-menu ul li:last-child {
+  padding-top: 20px;
+  border-top: 1px solid var(--very-light-pink);
+}
+.desktop-menu ul li:last-child a {
+  color: var(--hospital-green);
+  font-size: var(--sm);
+}
+
+.desktop-menu ul li a {
+  display: inline-block;
+  color: var(--black);
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+/* fin menu desplegable email */
 
 @media (max-width: 640px) {
+  /* navbar responsive */
   .menu {
     display: block;
     width: 22px;
+  }
+
+  .desktop-menu {
+    display: none;
   }
 
   .navbar-left ul {
@@ -102,4 +161,6 @@ nav {
   .email {
     display: none;
   }
+
+  /* fin navbar responsive */
 }
