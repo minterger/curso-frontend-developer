@@ -17,6 +17,28 @@
     <nav>
       <img src="./icons/icon_menu.svg" alt="menu" class="menu" />
 
+      <div class="mobile-menu inactive">
+        <ul>
+          <li><a href="">CATEGORIES</a></li>
+          <li><a href="">All</a></li>
+          <li><a href="">Clothes</a></li>
+          <li><a href="">Electronics</a></li>
+          <li><a href="">Furnitures</a></li>
+          <li><a href="">Toys</a></li>
+          <li><a href="">Others</a></li>
+        </ul>
+
+        <ul>
+          <li><a href="">My orders</a></li>
+          <li><a href="">My account</a></li>
+        </ul>
+
+        <ul>
+          <li class="email">example@email.com</li>
+          <li><a href="" class="sign-out">Sign out</a></li>
+        </ul>
+      </div>
+
       <div class="navbar-left">
         <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo" />
 
@@ -47,6 +69,57 @@
         </ul>
       </div>
     </nav>
+
+    <aside id="shop-cart" class="product-detail">
+      <div class="title-container">
+        <img src="./icons/flechita.svg" alt="arrow" />
+        <span class="title"> My order </span>
+      </div>
+
+      <div class="my-order-shopping">
+        <figure>
+          <img
+            src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="bike"
+          />
+        </figure>
+        <span>Bike</span>
+        <span>$30.00</span>
+        <img src="./icons/icon_close.png" alt="close" />
+      </div>
+      <div class="my-order-shopping">
+        <figure>
+          <img
+            src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="bike"
+          />
+        </figure>
+        <span>Bike</span>
+        <span>$30.00</span>
+        <img src="./icons/icon_close.png" alt="close" />
+      </div>
+      <div class="my-order-shopping">
+        <figure>
+          <img
+            src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="bike"
+          />
+        </figure>
+        <span>Bike</span>
+        <span>$30.00</span>
+        <img src="./icons/icon_close.png" alt="close" />
+      </div>
+
+      <div class="order">
+        <div>
+          <span>Total</span>
+        </div>
+
+        <span>$560.00</span>
+      </div>
+
+      <button class="primary-button checkout">Checkout</button>
+    </aside>
 
     <script src="main.js"></script>
   </body>
