@@ -152,13 +152,12 @@ nav {
   background-color: var(--white);
   position: absolute;
   border-right: 1px solid var(--very-light-pink);
-  height: calc(100vh -60px);
+  border-bottom: 1px solid var(--very-light-pink);
   top: 60px;
   left: 0;
-  max-height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
   overflow-y: auto;
   transition: visibility 0.3s, opacity 0.3s, translate 0.3s;
 }
@@ -288,7 +287,7 @@ nav {
   grid-template-columns: repeat(auto-fill, var(--card-size));
   gap: 26px;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .product-card {
