@@ -8,20 +8,35 @@ const shopCart = document.querySelector("#shop-cart");
 
 const cardsContainer = document.querySelector(".cards-container");
 
+const productDetail = document.querySelector("#product-detail");
+const closeProductDetail = document.querySelector("#product-detail .close");
+
+const productDetailImg = document.querySelector("#product-detail > img");
+const productDetailInfo = document.querySelector(
+  "#product-detail .product-info"
+);
+
 email.addEventListener("click", () => {
   toggleClassElement(desktopMenu);
   isElementOpenToggleClass(shopCart);
+  isElementOpenToggleClass(productDetail);
 });
 
 menu.addEventListener("click", () => {
   toggleClassElement(mobileMenu);
   isElementOpenToggleClass(shopCart);
+  isElementOpenToggleClass(productDetail);
 });
 
 cartButton.addEventListener("click", () => {
   toggleClassElement(shopCart);
   isElementOpenToggleClass(mobileMenu);
   isElementOpenToggleClass(desktopMenu);
+  isElementOpenToggleClass(productDetail);
+});
+
+closeProductDetail.addEventListener("click", () => {
+  toggleClassElement(productDetail);
 });
 
 /**
@@ -31,37 +46,51 @@ const productList = [
   {
     title: "Bike",
     src: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    price: 29.99,
+    price: 30.99,
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur velit voluptas fuga quas unde delectus, maxime at nemo voluptatum, odit aliquid necessitatibus repellendus numquam.",
   },
   {
     title: "Bike",
     src: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     price: 29.99,
+    description:
+      "bike is a master Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur velit voluptas fuga quas unde delectus, maxime at nemo voluptatum, odit aliquid necessitatibus repellendus numquam.",
   },
   {
-    title: "Bike",
+    title: "Bike 1",
     src: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    price: 29.99,
+    price: 45.99,
+    description:
+      "bike 1 is a master Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur velit voluptas fuga quas unde delectus, maxime at nemo voluptatum, odit aliquid necessitatibus repellendus numquam.",
   },
   {
-    title: "Bike",
+    title: "Bike 2",
     src: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    price: 29.99,
+    price: 15.99,
+    description:
+      "bike 2 is a master Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur velit voluptas fuga quas unde delectus, maxime at nemo voluptatum, odit aliquid necessitatibus repellendus numquam.",
   },
   {
-    title: "Bike",
+    title: "Bike 3",
     src: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    price: 29.99,
+    price: 27.99,
+    description:
+      "bike 3 is a master Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur velit voluptas fuga quas unde delectus, maxime at nemo voluptatum, odit aliquid necessitatibus repellendus numquam.",
   },
   {
-    title: "Bike",
+    title: "Bike 4",
     src: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    price: 29.99,
+    price: 24.99,
+    description:
+      "bike 4 is a master Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur velit voluptas fuga quas unde delectus, maxime at nemo voluptatum, odit aliquid necessitatibus repellendus numquam.",
   },
   {
-    title: "Bike",
+    title: "Bike 5",
     src: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     price: 29.99,
+    description:
+      "bike 5 is a master Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur velit voluptas fuga quas unde delectus, maxime at nemo voluptatum, odit aliquid necessitatibus repellendus numquam.",
   },
 ];
 
@@ -93,6 +122,17 @@ const renderProducts = (list) => {
     productInfo.append(info, figure);
 
     cardsContainer.appendChild(div);
+
+    img.addEventListener("click", () => {
+      productDetailImg.src = e.src;
+      productDetailInfo.children[0].textContent = e.price;
+      productDetailInfo.children[1].textContent = e.title;
+      productDetailInfo.children[2].textContent = e.description;
+      productDetail.classList.remove("inactive");
+      isElementOpenToggleClass(shopCart);
+      isElementOpenToggleClass(mobileMenu);
+      isElementOpenToggleClass(desktopMenu);
+    });
   });
 };
 
