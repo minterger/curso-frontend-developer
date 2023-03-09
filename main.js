@@ -42,64 +42,13 @@ closeProductDetail.addEventListener("click", () => {
 /**
  * lista de los productos
  */
-const productList = [
-  {
-    title: "Bike",
-    src: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    price: 30.99,
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur velit voluptas fuga quas unde delectus, maxime at nemo voluptatum, odit aliquid necessitatibus repellendus numquam.",
-  },
-  {
-    title: "Bike",
-    src: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    price: 29.99,
-    description:
-      "bike is a master Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur velit voluptas fuga quas unde delectus, maxime at nemo voluptatum, odit aliquid necessitatibus repellendus numquam.",
-  },
-  {
-    title: "Bike 1",
-    src: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    price: 45.99,
-    description:
-      "bike 1 is a master Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur velit voluptas fuga quas unde delectus, maxime at nemo voluptatum, odit aliquid necessitatibus repellendus numquam.",
-  },
-  {
-    title: "Bike 2",
-    src: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    price: 15.99,
-    description:
-      "bike 2 is a master Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur velit voluptas fuga quas unde delectus, maxime at nemo voluptatum, odit aliquid necessitatibus repellendus numquam.",
-  },
-  {
-    title: "Bike 3",
-    src: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    price: 27.99,
-    description:
-      "bike 3 is a master Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur velit voluptas fuga quas unde delectus, maxime at nemo voluptatum, odit aliquid necessitatibus repellendus numquam.",
-  },
-  {
-    title: "Bike 4",
-    src: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    price: 24.99,
-    description:
-      "bike 4 is a master Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur velit voluptas fuga quas unde delectus, maxime at nemo voluptatum, odit aliquid necessitatibus repellendus numquam.",
-  },
-  {
-    title: "Bike 5",
-    src: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    price: 29.99,
-    description:
-      "bike 5 is a master Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur velit voluptas fuga quas unde delectus, maxime at nemo voluptatum, odit aliquid necessitatibus repellendus numquam.",
-  },
-];
 
 const renderProducts = (list) => {
   list.forEach((e) => {
     const div = document.createElement("div");
     div.classList.add("product-card");
     const img = document.createElement("img");
-    img.src = e.src;
+    img.src = e.images[0];
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
 
@@ -124,8 +73,8 @@ const renderProducts = (list) => {
     cardsContainer.appendChild(div);
 
     img.addEventListener("click", () => {
-      productDetailImg.src = e.src;
-      productDetailInfo.children[0].textContent = e.price;
+      productDetailImg.src = e.images[0];
+      productDetailInfo.children[0].textContent = "$" + e.price;
       productDetailInfo.children[1].textContent = e.title;
       productDetailInfo.children[2].textContent = e.description;
       productDetail.classList.remove("inactive");
@@ -136,7 +85,14 @@ const renderProducts = (list) => {
   });
 };
 
-renderProducts(productList);
+fetch("https://api.escuelajs.co/api/v1/products")
+  .then((res) => res.json())
+  .then((data) => {
+    renderProducts(data);
+  })
+  .catch((e) => {
+    console.error(e);
+  });
 
 /**
  * funcion para cambiar clase inactive a un elemento html del dom
