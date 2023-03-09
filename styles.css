@@ -369,6 +369,8 @@ nav {
   height: var(--card-size);
   border-radius: 20px;
   object-fit: cover;
+  cursor: pointer;
+
   /* object-position: right; */
 }
 
@@ -380,6 +382,7 @@ nav {
 }
 
 .product-card .product-info figure {
+  cursor: pointer;
   margin: 0;
 }
 
